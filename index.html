@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ครัวปรุงสุข รู้ทันโซเดียม</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai+Looped:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--dk:#1f5a2e;--md:#8fb27a;--lt:#d3e8bd;--cr:#fbf4e4;--gd:#d9a93a;--ink:#1c3a24;
+--g:#2e9a4a;--y:#e0a800;--r:#d1432f}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--cr);color:var(--ink);font-family:'Noto Sans Thai Looped','Sarabun',sans-serif;font-size:18px}
+body{max-width:520px;margin:0 auto;min-height:100vh;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+section{display:none;padding:18px 16px 28px}section.on{display:block}
+h1,h2{color:var(--dk);margin:.2em 0;line-height:1.3}h2{font-size:1.5rem;text-align:center}
+img{max-width:100%;display:block}
+.btn{display:block;width:100%;border:0;border-radius:40px;padding:16px;font:800 1.2rem inherit;font-family:inherit;color:#fff;background:var(--dk);box-shadow:0 4px 0 var(--gd);cursor:pointer;margin-top:14px}
+.btn.alt{background:var(--md);color:var(--dk);box-shadow:none}
+.btn.out{background:#fff;color:var(--dk);border:3px solid var(--dk);box-shadow:none}
+.btn:disabled{opacity:.45}.btn:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gd);outline-offset:2px}
+.hero{border-radius:20px;overflow:hidden;aspect-ratio:1052/1230}
+.hero img{width:100%}
+.card{background:var(--lt);border-radius:20px;padding:16px;margin:14px 0}
+label{font-weight:800;color:var(--dk);display:block;margin-bottom:6px}
+input[type=text],input[type=number]{width:100%;font:inherit;font-size:1.2rem;padding:12px 14px;border:3px solid var(--dk);border-radius:14px;background:#fff}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ing{background:#fff;border:3px solid var(--lt);border-radius:18px;padding:8px;text-align:center}
+.ing.has{border-color:var(--dk);background:#f3fbe9}
+.ing img{border-radius:12px;aspect-ratio:1/.95;object-fit:cover;width:100%}
+.ing b{display:block;margin:6px 0;color:var(--dk)}
+.unit{display:flex;border-radius:20px;overflow:hidden;border:2px solid var(--dk);margin-bottom:6px}
+.unit button{flex:1;border:0;padding:6px 2px;font:600 .8rem inherit;font-family:inherit;background:#fff;color:var(--dk)}
+.unit button.on{background:var(--dk);color:#fff}
+.opt{display:flex;align-items:center;gap:8px;padding:7px 4px;text-align:left;font-weight:600;cursor:pointer;border-radius:10px}
+.opt input{width:22px;height:22px;accent-color:var(--dk);margin:0}
+.sum{position:sticky;bottom:0;background:var(--cr);padding:8px 0 4px}
+.dark{background:var(--dk);color:#fff;border-radius:20px;padding:16px;text-align:center;font-weight:800}
+.big{display:inline-block;min-width:60%;background:#fff;color:var(--dk);border-radius:16px;padding:8px;font-size:2rem;margin:6px 8px 0 0}
+.row{display:flex;justify-content:space-between;padding:10px 6px;border-bottom:1px dashed var(--md)}
+.badge{display:flex;align-items:center;gap:10px;border-radius:20px;padding:14px 16px;color:#fff;font-weight:800;font-size:1.15rem}
+.green{background:var(--g)}.yellow{background:var(--y)}.red{background:var(--r)}
+.tip{font-size:1.05rem;line-height:1.7}.tip li{margin:.4em 0}
+.note{text-align:center;font-size:.9rem;color:#58724f;margin:10px 0 0}
+#toast{font-size:.85rem;text-align:center;color:#58724f;min-height:1.2em;margin-top:8px}
+
+.tpl{position:relative;container-type:inline-size;width:100%;background-size:100% 100%;font-size:4.4cqw}
+.tpl .ov{position:absolute;margin:0}
+.tpl button.hit{position:absolute;border:0;background:transparent;cursor:pointer;border-radius:40px;box-shadow:none;margin:0;padding:0}
+.tpl button.hit:focus-visible{outline:3px solid var(--gd)}
+#s2,#s4,#s5{padding:0}
+#t2{aspect-ratio:941/1672;background-image:url(img/t2.jpg)}
+#t4{aspect-ratio:992/1586;background-image:url(img/t4.jpg)}
+#t5{aspect-ratio:941/1672;background-image:url(img/t5.jpg)}
+#menu{left:6.38%;top:45.16%;width:87.14%;height:9.99%;font-size:6.2cqw;border:3px solid var(--dk);border-radius:5cqw;padding:0 4cqw;background:#fff;font-weight:600}
+.ppl{left:15.94%;top:78.47%;width:68.01%;height:4.78%;display:flex;align-items:center;justify-content:center;gap:3cqw;background:#fbf4e4ee;border:3px solid var(--dk);border-radius:8cqw;font-weight:800;color:var(--dk);font-size:4.6cqw}
+.ppl button{width:9cqw;height:9cqw;border-radius:50%;border:0;background:var(--dk);color:#fff;font:800 6cqw inherit;font-family:inherit;line-height:1;padding:0}
+.ppl output{min-width:8cqw;text-align:center;font-size:6cqw}
+#hit2{left:2.13%;top:84.45%;width:95.64%;height:13.34%}
+#rMenu{left:7.06%;top:17.15%;width:86.19%;height:5.04%;display:flex;align-items:center;justify-content:space-between;padding:0 3cqw;font-weight:800;color:var(--dk);font-size:4.8cqw}
+#rPill{color:#fff;border-radius:6cqw;padding:.6cqw 3cqw;font-size:3.8cqw;white-space:nowrap}
+#rTotal{left:18.15%;top:30.45%;width:58.67%;height:6.75%;display:flex;align-items:center;justify-content:center;font-size:10cqw;font-weight:800;color:var(--dk)}
+#rAvg{left:42.04%;top:40.98%;width:37.60%;height:5.80%;display:flex;align-items:center;justify-content:center;font-size:8cqw;font-weight:800;color:var(--dk);border-radius:6cqw}
+#rList{left:4.54%;top:55.49%;width:91.03%;height:21.12%;overflow:auto;padding:1cqw 3cqw}
+.row{font-size:4.4cqw;padding:2cqw 1cqw}
+#hit4a{left:8.37%;top:83.54%;width:83.06%;height:6.75%}
+#hit4b{left:8.37%;top:91.61%;width:83.06%;height:6.75%}
+#aBox{left:3.83%;top:24.82%;width:92.03%;height:56.40%;overflow:auto;padding:2cqw}
+#aBox .badge{font-size:4.6cqw;padding:2.5cqw 3.5cqw;margin-bottom:2cqw}
+#aBox .tip{font-size:4.4cqw;line-height:1.65}
+#hit5a{left:2.13%;top:84.93%;width:95.64%;height:6.58%}
+#hit5b{left:2.13%;top:92.40%;width:95.64%;height:6.28%}
+</style>
+</head>
+<body>
+
+<section id="s1" class="on">
+  <div class="hero"><img src="img/p1.jpg" alt="ครัวปรุงสุข รู้ทันโซเดียม บ้านร่มโพธิ์งาม หมู่ 2"></div>
+  <button class="btn" onclick="go(2)">เริ่มใช้งาน</button>
+</section>
+
+<section id="s2">
+  <div class="tpl" id="t2">
+    <input class="ov" type="text" id="menu" placeholder="เช่น ผัดกะเพรา" autocomplete="off" aria-label="ชื่อเมนูอาหาร">
+    <div class="ov ppl">จำนวนคน <button onclick="ppl(-1)" aria-label="ลด">−</button><output id="pplv">1</output><button onclick="ppl(1)" aria-label="เพิ่ม">+</button></div>
+    <button class="hit" id="hit2" onclick="go(3)" aria-label="เลือกเครื่องปรุง"></button>
+  </div>
+</section>
+
+<section id="s3">
+  <h2>ใส่เครื่องปรุงอะไรบ้าง</h2>
+  <p class="note" style="margin:0 0 10px">เลือกชนิดช้อน แล้วแตะปริมาณที่ใช้ (แตะซ้ำเพื่อยกเลิก)</p>
+  <div class="grid" id="grid"></div>
+  <div class="sum"><button class="btn" id="calc" onclick="calc()" disabled>คำนวณโซเดียม</button></div>
+</section>
+
+<section id="s4">
+  <div class="tpl" id="t4">
+    <div class="ov" id="rMenu"><span id="rName"></span><span id="rPill"></span></div>
+    <div class="ov" id="rTotal"></div>
+    <div class="ov" id="rAvg"></div>
+    <div class="ov" id="rList"></div>
+    <button class="hit" id="hit4a" onclick="go(5)" aria-label="ดูคำแนะนำลดเค็ม"></button>
+    <button class="hit" id="hit4b" onclick="go(3)" aria-label="แก้ไขเครื่องปรุง"></button>
+  </div>
+  <div id="toast"></div>
+</section>
+
+<section id="s5">
+  <div class="tpl" id="t5">
+    <div class="ov" id="aBox"><div class="badge" id="aBadge"></div><div class="tip"><ul id="aList" style="margin:0;padding-left:5cqw"></ul></div></div>
+    <button class="hit" id="hit5a" onclick="go(4)" aria-label="กลับไปดูผล"></button>
+    <button class="hit" id="hit5b" onclick="reset()" aria-label="เริ่มเมนูใหม่"></button>
+  </div>
+</section>
+
+<script>
+// ฐานข้อมูลเครื่องปรุง (มก. โซเดียม ต่อ 1 ช้อนชา / 1 ช้อนโต๊ะ)
+const ING=[
+['เกลือ','salt',2000,6000],['น้ำปลา','fish_sauce',500,1500],['ผงชูรส','msg',492,1476],['รสดี','rosdee',815,2445],
+['ซีอิ๊วขาว','soy_light',396,1190],['ซีอิ๊วดำ','soy_dark',396,1190],['ซอสหอยนางรม','oyster',172,518],['ปลาร้า','plara',500,1500],
+['กะปิ','kapi',496,1490],['เต้าเจี้ยว','taojiao',136,410],['น้ำพริกเผา','nam_prik_pao',45,137],['น้ำปู','nam_pu',705,2115],
+['ถั่วเน่าแผ่น','thua_nao',120,360],['น้ำจิ้มสุกี้','suki',83,250]
+].map(([name,img,tsp,tbsp],i)=>({id:i,name,img,tsp,tbsp}));
+const FR=[['1',1],['1/2',.5],['1/4',.25],['3/4',.75]];
+const FL={1:'1',.5:'1/2',.25:'1/4',.75:'3/4'};
+const LV={
+green:{t:'🟢 อาหารโซเดียมต่ำ (0–400 มก.)',tips:['เลือกรับประทานอาหารที่ปรุงสดใหม่ เช่น ข้าวสวย ผักต้ม ผักนึ่ง และผลไม้สด','เลือกเนื้อสัตว์สด เช่น ปลา ไก่ และหมูไม่ติดมัน แทนเนื้อสัตว์แปรรูป','ใช้สมุนไพรเพิ่มรสชาติ เช่น มะนาว ตะไคร้ ขิง ใบมะกรูด กระเทียม และพริก','ชิมอาหารก่อนปรุงทุกครั้ง','หลีกเลี่ยงการเติมน้ำปลา ซีอิ๊ว หรือเกลือเพิ่ม','รักษาพฤติกรรมการกินอาหารรสจืดอย่างต่อเนื่อง']},
+yellow:{t:'🟡 อาหารโซเดียมปานกลาง (401–500 มก.)',tips:['รับประทานในปริมาณที่เหมาะสม และคำนึงถึงโซเดียมจากอาหารมื้ออื่น','ลดปริมาณเครื่องปรุงรสลงจากเดิม เช่น ลดน้ำปลาและซีอิ๊ว','หลีกเลี่ยงการซดน้ำแกง น้ำซุป และน้ำก๋วยเตี๋ยวจนหมด','เลือกอาหารที่ไม่ผ่านการหมักดองหรือแปรรูป','อ่านฉลากโภชนาการก่อนเลือกซื้ออาหารสำเร็จรูป','หากมื้อนี้มีโซเดียมใกล้ 500 มิลลิกรัม ควรเลือกอาหารมื้อถัดไปที่มีโซเดียมต่ำลง']},
+red:{t:'🔴 อาหารโซเดียมสูง (มากกว่า 500 มก.)',tips:['หลีกเลี่ยงอาหารที่มีรสเค็มจัด เช่น ปลาเค็ม ไข่เค็ม และผักดอง','ลดอาหารแปรรูป เช่น ไส้กรอก แฮม ลูกชิ้น และบะหมี่กึ่งสำเร็จรูป','หลีกเลี่ยงการเติมผงชูรส ผงปรุงรส และซุปก้อนในปริมาณมาก','เปลี่ยนจากอาหารสำเร็จรูปเป็นอาหารปรุงสด','หากรับประทานอาหารที่มีโซเดียมสูง ควรปรับเปลี่ยนเป็นเมนูโซเดียมต่ำ ไม่ใช่อดอาหารมื้อถัดไป']}};
+const $=id=>document.getElementById(id), fmt=n=>Math.round(n).toLocaleString('th-TH');
+let pick={}, R=null; // pick[id]={u:'tsp'|'tbsp',f:number}
+
+function go(n){
+  if(n===3&&!$('menu').value.trim()){$('menu').focus();return alert('กรุณากรอกชื่อเมนูอาหาร')}
+  document.querySelectorAll('section').forEach(s=>s.classList.toggle('on',s.id==='s'+n));scrollTo(0,0)}
+
+function draw(){
+  $('grid').innerHTML=ING.map(g=>{const p=pick[g.id]||{u:'tsp',f:0};
+    return `<div class="ing ${p.f?'has':''}"><img src="img/${g.img}.jpg" alt="${g.name}" loading="lazy"><b>${g.name}</b>
+    <div class="unit"><button class="${p.u==='tsp'?'on':''}" onclick="setU(${g.id},'tsp')">ช้อนชา</button><button class="${p.u==='tbsp'?'on':''}" onclick="setU(${g.id},'tbsp')">ช้อนโต๊ะ</button></div>
+    ${FR.map(([l,v])=>`<label class="opt"><input type="radio" name="r${g.id}" ${p.f===v?'checked':''} onclick="setF(${g.id},${v})">${l}</label>`).join('')}</div>`}).join('');
+  $('calc').disabled=!Object.values(pick).some(p=>p.f)}
+function setU(id,u){pick[id]={u,f:0,...pick[id],u};draw()}
+function setF(id,f){const p=pick[id]||{u:'tsp',f:0};p.f=p.f===f?0:f;pick[id]=p;draw()}
+
+function level(v){return v<=400?'green':v<=500?'yellow':'red'}
+function calc(){
+  const ppl=Math.max(1,n);
+  const items=ING.filter(g=>pick[g.id]?.f).map(g=>{const p=pick[g.id];
+    return {name:g.name,label:`${FL[p.f]} ${p.u==='tsp'?'ช้อนชา':'ช้อนโต๊ะ'}`,mg:g[p.u]*p.f}});
+  const total=items.reduce((a,b)=>a+b.mg,0), avg=total/ppl, lv=level(Math.round(avg));
+  R={menu:$('menu').value.trim(),ppl,items,total,avg,lv};
+  const col={green:['โซเดียมต่ำ','#2e9a4a','#d9f0d0'],yellow:['โซเดียมปานกลาง','#e0a800','#fff1bf'],red:['โซเดียมสูง','#d1432f','#fbd6cf']}[lv];
+  $('rName').textContent=R.menu+' ('+ppl+' คน)';$('rPill').textContent=col[0];$('rPill').style.background=col[1];
+  $('rTotal').textContent=fmt(total);$('rAvg').textContent=fmt(avg);$('rAvg').style.background=col[2];
+  $('rList').innerHTML=items.map(i=>`<div class="row"><span>${i.name} <small>(${i.label})</small></span><b>${fmt(i.mg)} มก.</b></div>`).join('');
+  $('aBadge').className='badge '+lv;$('aBadge').textContent=LV[lv].t;
+  $('aList').innerHTML=LV[lv].tips.map(t=>`<li>${t}</li>`).join('');
+  go(4);save();}
+
+async function save(){
+  $('toast').textContent='กำลังบันทึกประวัติ...';
+  try{const r=await fetch('/api/log',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+    menu:R.menu,people:R.ppl,total:Math.round(R.total),perPerson:Math.round(R.avg),level:R.lv,
+    items:R.items.map(i=>`${i.name} ${i.label}=${Math.round(i.mg)}`).join(', ')})});
+    $('toast').textContent=r.ok?'บันทึกประวัติแล้ว ✓':'บันทึกประวัติไม่สำเร็จ'}
+  catch(e){$('toast').textContent='บันทึกประวัติไม่สำเร็จ'}}
+let n=1;function ppl(d){n=Math.min(50,Math.max(1,n+d));$('pplv').textContent=n}
+function reset(){n=1;$('pplv').textContent=1;pick={};R=null;$('menu').value='';draw();go(2)}
+draw();
+</script>
+</body>
+</html>
