@@ -73,8 +73,9 @@
       border: 0;
       border-radius: 40px;
       padding: 16px;
-      font: 800 1.2rem inherit;
       font-family: inherit;
+      font-weight: 800;
+      font-size: 1.3rem;
       color: #fff;
       background: var(--dk);
       box-shadow: 0 4px 0 var(--gd);
@@ -151,7 +152,7 @@
       background: #fff;
       border: 3px solid var(--lt);
       border-radius: 18px;
-      padding: 8px;
+      padding: 6px;
       text-align: center
     }
 
@@ -185,8 +186,10 @@
       flex: 1;
       border: 0;
       padding: 9px 2px;
-      font: 700 .82rem inherit;
       font-family: inherit;
+      font-weight: 700;
+      font-size: .78rem;
+      white-space: nowrap;
       background: #fff;
       color: var(--dk)
     }
@@ -573,8 +576,8 @@
     }
 
     .step button {
-      width: 38px;
-      height: 38px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       border: 0;
       background: var(--dk);
@@ -622,17 +625,24 @@
     .optrow {
       display: flex;
       align-items: center;
-      flex-wrap: wrap;
-      column-gap: 6px
+      flex-wrap: nowrap;
+      column-gap: 4px
     }
 
     .optrow .opt {
-      flex: none
+      flex: none;
+      gap: 6px;
+      padding-right: 0
     }
 
     .optrow .step {
-      margin: 0;
-      gap: 6px
+      margin: 0 0 0 auto;
+      gap: 4px
+    }
+
+    .optrow .step output {
+      font-size: 1rem;
+      min-width: .9em
     }
   </style>
 </head>
@@ -754,7 +764,7 @@
             items: R.items.map(i => `${i.name} ${i.label}=${Math.round(i.mg)}`).join(', ')
           })
         });
-        $('toast').textContent = r.ok ? 'บันทึกประวัติแล้ว ✓' : 'บันทึกประวัติไม่สำเร็จ'
+        $('toast').textContent = r.ok ? 'บันทึกประวัติแล้ว' : 'บันทึกประวัติไม่สำเร็จ'
       }
       catch (e) { $('toast').textContent = 'บันทึกประวัติไม่สำเร็จ' }
     }
